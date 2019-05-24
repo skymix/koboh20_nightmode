@@ -1,4 +1,4 @@
-# koboh20_nightmode
+# kobo_H2O_nightmode Ebook
 Enable the night mode in the Kobo H2O Edition 2 Version 2 Mark 7 Ebook Reader using Kfmon and incons on the ebook
 
 For use the script first you need to install KFmon on the device.
