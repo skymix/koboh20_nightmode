@@ -37,6 +37,9 @@ WORKDIR=$(dirname "$0")
 CONFFILE="/mnt/onboard/.kobo/Kobo/Kobo eReader.conf"
 cd "$WORKDIR" || exit 1
 
+#Security backup of the Config File
+cp "$CONFFILE" "$CONFFILE".bak
+
 #CHeck it Feature Exist is on Config File
 
 if grep -q "InvertScreen" "$CONFFILE" ; then
