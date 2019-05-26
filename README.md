@@ -8,3 +8,5 @@ After have the KFmon on your Kobo H2O Device you have a .adds directory on the r
 I have created an app Nightmode in bash for change using nightmode.png pic 
 
 The use of this script is based on the Feature Section and the InvertScreen to change the color of the background, with this script the ebook reboot and the InvertScreen apply.
+
+NOTE : The zip file is a OneClick Install, download and extract to the root folder of the device. You must plug your e-reader Kobo H2O and directly extract the content of the .zip on the root folder mounted.
