@@ -14,7 +14,7 @@
 #InvertScreen False = White Background Black Text
 #We use the nightmode.png icon on the icons directory to launch the script via KFMon
 #
-# TODO: Automatic add the FeatureSetting to the config if not exist
+# TODO: 
 #
 #Copyright (C) 2019 Jose Angel Diaz Diaz
 # skymix.es@gmail.com 05/2019
@@ -34,13 +34,24 @@
 ############################################################################
 
 WORKDIR=$(dirname "$0")
+CONFFILE="/mnt/onboard/.kobo/Kobo/Kobo eReader.conf"
 cd "$WORKDIR" || exit 1
 
-#Change the InvertScreen State
-if grep -q InvertScreen=false /mnt/onboard/.kobo/Kobo/Kobo\ eReader.conf; then
-  sed -i 's/InvertScreen=false/InvertScreen=true/g' /mnt/onboard/.kobo/Kobo/Kobo\ eReader.conf
+#CHeck it Feature Exist is on Config File
+
+if grep -q "InvertScreen" "$CONFFILE" ; then
+  echo "Config_ok"
 else
-  sed -i 's/InvertScreen=true/InvertScreen=false/g' /mnt/onboard/.kobo/Kobo/Kobo\ eReader.conf
+  echo  "[FeatureSettings]" >> "$CONFFILE"
+  echo  "InvertScreen=false" >> "$CONFFILE"
+fi  
+
+
+#Change the InvertScreen State
+if grep -q InvertScreen=false "$CONFFILE"; then
+  sed -i 's/InvertScreen=false/InvertScreen=true/g' "$CONFFILE" 
+else
+  sed -i 's/InvertScreen=true/InvertScreen=false/g' "$CONFFILE"
 fi
 
 #Reboot nickel and apply the change 
